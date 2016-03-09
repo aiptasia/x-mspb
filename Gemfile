@@ -51,3 +51,9 @@ gem 'haml'
 
 # Use susy as the grid layout
 gem 'susy'
+
+# Use pdf-reader for scraping pdf
+gem 'pdf-reader'
+
+# Use yaml_db for database-independent dumping and restoring data
+gem 'yaml_db'
