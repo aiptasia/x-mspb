@@ -1,0 +1,92 @@
+@mixin header-theme($background) {
+  background: $background;
+  height: to-leading($header-height);
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 99;
+}
+
+header {
+  background: transparent;
+  color: $header-accent-color;
+  font-family: roboto-light;
+  height: to-leading($header-height);
+  position: absolute;
+  width: 100%;
+
+  &:after {
+    background: $header-blackout;
+    content: '';
+    height: to-leading($header-height);
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 9999;
+  }
+  .mspb-logo {
+    float: left;
+    line-height: to-leading($header-height);
+    position: relative;
+    z-index: 99999;
+    img {
+      height: to-leading(2);
+      vertical-align: middle;
+    }
+  }
+  .navbar-toggle {
+    float: right;
+    line-height: to-leading($header-height);
+    position: relative;
+    z-index: 99999;
+    i {
+      cursor: pointer;
+      vertical-align: middle;
+    }
+  }
+
+  // -----------------------------------
+  // Navbar mobile version (vertical)
+  // -----------------------------------
+
+  @include susy-media(max-width $mobile-menu-breakpoint) {
+    .navbar-nav {
+      background: $header-mobile-background;
+      display: none;
+      position: absolute;
+      right: 0;
+      text-align: center;
+      top: to-leading($header-height);
+      width: 100%;
+      z-index: 999;
+      .navbar-link {
+        @include set-modular-scale(0);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        padding: to-leading(0.5 1);
+        white-space: nowrap;
+      }
+    }
+  }
+
+  // ---------------------------
+  // Navbar desktop version
+  // ---------------------------
+
+  @include susy-media($mobile-menu-breakpoint + 1px) {
+    .navbar-nav {
+      display: block;
+      float: right;
+      position: relative;
+      width: auto;
+      z-index: 99999;
+      .navbar-link {
+        display: inline-block;
+        line-height: to-leading($header-height);
+        padding: to-leading(0 0.5);
+      }
+    }
+    .navbar-toggle {
+      display: none;
+    }
+  }
+}

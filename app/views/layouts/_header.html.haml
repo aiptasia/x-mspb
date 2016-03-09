@@ -1,0 +1,18 @@
+%header
+  .data-container
+    %nav.navbar
+      .mspb-logo
+        = link_to image_tag('logo.svg', alt: 'MotulSpb логотип'), root_path
+
+      .navbar-toggle
+        %i.material-icons{id: 'js-navbar-toggle'} &#xE5D2;
+
+      .navbar-nav{id: 'js-navbar-nav'}
+        .navbar-link
+          = link_to 'КАТАЛОГ', root_path
+        .navbar-link
+          = link_to 'ДОСТАВКА', delivery_path
+        .navbar-link
+          = link_to 'ОПЛАТА', payment_path
+        .navbar-link
+          = link_to 'КОНТАКТЫ', contacts_path

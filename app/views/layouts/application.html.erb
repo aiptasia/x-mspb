@@ -1,14 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>MotulSpb</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>MotulSpb - официальный интернет-магазин автомасел Motul</title>
+
+  <link rel="icon" href="http://motulspb.ru/favicon.ico" type="image/x-icon">
+
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'https://fonts.googleapis.com/icon?family=Material+Icons', media: 'all', 'data-turbolinks-track' => true %>
+
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
   <%= csrf_meta_tags %>
+
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
 </head>
+
 <body>
 
+<%= render 'layouts/header' %>
 <%= yield %>
 
+<%= javascript_include_tag 'application', async: true, 'data-turbolinks-track' => true %>
+
 </body>
+
 </html>

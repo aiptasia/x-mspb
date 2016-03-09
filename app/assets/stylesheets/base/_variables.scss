@@ -1,0 +1,32 @@
+// ---------------------------
+// Common variables
+// ---------------------------
+
+$base-line-grid-debug: false;
+
+// ---------------------------
+// Color scheme
+// ---------------------------
+
+$motul-color: #ed252f;
+
+$white-theme-heading-color: #444;
+$white-theme-text-color: #666;
+$white-theme-background: #fff;
+$white-theme-accent-color: #2962ff;
+
+$light-theme-heading-color: #444;
+$light-theme-text-color: #666;
+$light-theme-background: #e9eaf4;
+$light-theme-accent-color: #2962ff;
+
+// ---------------------------
+// Header variables
+// ---------------------------
+
+$header-height: 3;  /* in leading */
+$mobile-menu-breakpoint: 780px;
+$header-blackout: rgba(0, 0, 0, 0.2);
+$header-accent-color: #fff;
+$header-foreground-color: #a3a3a3;
+$header-mobile-background: #4E4F5E;

@@ -46,3 +46,8 @@ group :development do
   gem 'spring'
 end
 
+# Use haml as the html templating system
+gem 'haml'
+
+# Use susy as the grid layout
+gem 'susy'

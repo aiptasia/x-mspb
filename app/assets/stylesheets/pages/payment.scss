@@ -1,0 +1,7 @@
+main.payment {
+  padding-top: to-leading($header-height + 1);
+
+  .header-theme {
+    @include header-theme($motul-color);
+  }
+}

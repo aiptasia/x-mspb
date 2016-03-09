@@ -1,0 +1,107 @@
+/* global breakpoints */
+
+$named-breakpoints: (
+  "br1": 768px,
+  "br2": 1170px,
+  "br3": 1920px
+);
+
+.data-container {
+  @include container(85%);
+
+  @include named-breakpoint("br1") {
+    @include container(85%);
+  }
+  @include named-breakpoint("br2") {
+    @include container(85%);
+  }
+  @include named-breakpoint("br3") {
+    @include container(80%);
+  }
+}
+
+/* html responsive font-size */
+
+html {
+  @include responsive("font-size", 12px,
+    (
+      "br1": 14px,
+      "br2": 16px,
+      "br3": 18px
+    )
+  );
+}
+
+body {
+  font-size: 1rem;
+}
+
+/* responsive leading */
+
+$leading: 1.5rem;
+
+@function to-leading($boundaries) {
+  $result: ();
+  @for $i from 1 through length($boundaries) {
+    $result: append($result, nth($boundaries, $i) * $leading);
+  }
+  @return $result;
+}
+
+/* scaling of font-size and leading */
+
+$font-size-scale: ( // ratio: 1.333
+ -1: 0.75rem,
+  0: 1rem,
+  1: 1.333rem,
+  2: 1.777rem,
+  3: 2.369rem
+);
+
+$leading-scale: (
+ -1: to-leading(1),
+  0: to-leading(1),
+  1: to-leading(1.25),
+  2: to-leading(1.50),
+  3: to-leading(1.75),
+);
+
+@function font-size-scale($level) {
+  @return map-get($font-size-scale, $level);
+}
+
+@function leading-scale($level) {
+  @return map-get($leading-scale, $level);
+}
+
+/* modular scale */
+
+@mixin set-modular-scale($level: 0, $margin: null) {
+
+  font-size: font-size-scale($level);
+  line-height: leading-scale($level);
+
+  @if $margin == with-margin {
+    margin: to-leading(0.5 0);
+  }
+  @if $margin == without-margin {
+    margin: 0;
+  }
+}
+
+/* set responsive.scss breakpoint mixin */
+
+@mixin breakpoint($breakpoint) {
+  @include susy-media($breakpoint) {
+    @content;
+  }
+}
+
+/* draw base-line grid */
+
+body {
+  @if $base-line-grid-debug {
+    background-size: 1px to-leading(0.5);
+    background-image: linear-gradient(to bottom, #666 1px, transparent 1px);
+  }
+}
